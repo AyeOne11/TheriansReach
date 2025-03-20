@@ -13,7 +13,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: #fff; /* Lightened for contrast */
+      color: #fff;
       transition: background-color 0.3s;
     }
     .banner {
@@ -136,19 +136,29 @@
     footer {
       text-align: center;
       margin-top: 40px;
-      color: #5e8a3f;
+      background-color: rgba(46, 67, 33, 0.85); /* Matching the top banner */
+      padding: 20px;
+      border-top: 3px solid #8a7f5e;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+      color: #d1c9a5; /* Light beige for contrast */
       font-size: 0.9em;
     }
     footer p {
       margin: 5px 0;
     }
+    footer .riddle {
+      font-style: italic;
+      color: #e8e2d3; /* Slightly lighter for emphasis */
+    }
     .social-links {
       margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Better spacing between icons */
     }
     .social-icon {
       width: 30px;
       height: 30px;
-      margin: 0 10px;
       transition: transform 0.3s;
     }
     .social-icon:hover {
@@ -232,12 +242,12 @@
 
   <!-- Footer with Social Links -->
   <footer>
-    <p>What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...</p>
+    <p class="riddle">What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...</p>
     <div class="social-links">
       <a href="https://www.facebook.com/profile.php?id=61565889596720" target="_blank">
         <img src="facebook-icon.png" alt="Facebook" class="social-icon">
       </a>
-      <a href="https://www.tiktok.com/@yourusername" target="_blank">
+      <a href="https://www.tiktok.com/@theriansreach" target="_blank">
         <img src="tiktok-icon.png" alt="TikTok" class="social-icon">
       </a>
     </div>
