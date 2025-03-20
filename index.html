@@ -54,6 +54,15 @@
       transition: transform 0.3s, box-shadow 0.3s;
       border: 2px solid #5e8a3f;
       border-style: double;
+      display: flex; /* Add flexbox for consistent alignment */
+      flex-direction: column; /* Stack title and button vertically */
+      justify-content: space-between; /* Space out content */
+      min-height: 200px; /* Ensure uniform height */
+    }
+    .book h2 {
+      margin: 0 0 15px 0; /* Consistent margin below title */
+      font-size: 1.5em;
+      line-height: 1.2; /* Prevent wrapping issues */
     }
     .book:hover {
       transform: translateY(-5px);
