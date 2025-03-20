@@ -1,101 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <div class="container">
-  <h1>Welcome to Therian's Reach</h1>
-  <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therian's Reach</title>
   <style>
-body {
-  font-family: 'Georgia', serif; /* Swap Arial for a warmer, storybook feel */
-  margin: 0;
-  padding: 20px;
-  background-color: #e8e2d3; /* Soft parchment beige, grounded yet mystical */
-  color: #3a2e1f; /* Deep earthy brown for text */
-  transition: background-color 0.3s;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-  color: #2a5f2a; /* Forest green for a grounded, mystical anchor */
-  font-size: 2.5em;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-.book-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.book {
-  background: #f9f5e9; /* Creamy off-white, like old paper */
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #8a7f5e; /* Subtle earthy border */
-}
-
-.book:hover {
-  transform: translateY(-5px); /* Playful lift */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Mystical glow */
-}
-
-button {
-  padding: 12px 24px;
-  background-color: #5e8a3f; /* Mossy green, grounded yet vibrant */
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-  background-color: #3f5e2a; /* Darker green for depth */
-  transform: scale(1.05); /* Playful pop */
-}
-
-.ebook-content {
-  display: none;
-  margin-top: 25px;
-  background: #f9f5e9;
-  padding: 25px;
-  border-radius: 15px;
-  border: 1px solid #8a7f5e;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url('therian_forest2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #3a2e1f;
+      transition: background-color 0.3s;
+    }
+    .banner {
+      background-color: rgba(46, 67, 33, 0.85);
+      padding: 20px 0;
+      border-bottom: 3px solid #8a7f5e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #e8e2d3;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .tagline {
+      font-style: italic;
+      color: #d1c9a5;
+      text-align: center;
+      margin-top: -10px;
+      font-size: 1.2em;
+    }
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .book {
+      background: #f9f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid #5e8a3f;
+      border-style: double;
+    }
+    .book:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+    button {
+      padding: 12px 24px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
+    .ebook-content {
+      display: none;
+      margin-top: 25px;
+      background: #f9f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      border: 2px dashed #8a7f5e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
+  <div class="banner">
+    <div class="container">
+      <h1>Welcome to Therian's Reach</h1>
+      <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
+    </div>
+  </div>
   <div class="container">
-    <h1>My Interactive E-Books</h1>
     <div class="book-list">
       <div class="book">
-        <h2>E-Book 1</h2>
-        <button onclick="showEbook('ebook1')">Read Now</button>
+        <h2>Echoes of the Wild</h2>
+        <button onclick="showEbook('ebook1')">Unravel the Tale</button>
       </div>
       <div class="book">
-        <h2>E-Book 2</h2>
-        <button onclick="showEbook('ebook2')">Read Now</button>
+        <h2>Whispers of the Pack</h2>
+        <button onclick="showEbook('ebook2')">Hear the Call</button>
       </div>
       <div class="book">
-        <h2>E-Book 3</h2>
-        <button onclick="showEbook('ebook3')">Read Now</button>
+        <h2>Dance of the Spirit</h2>
+        <button onclick="showEbook('ebook3')">Step Into Mystery</button>
       </div>
     </div>
 
     <!-- E-Book 1 Content -->
     <div id="ebook1" class="ebook-content">
-      <h2>E-Book 1</h2>
+      <h2>The Fox's Shadow</h2>
       <div id="ebook1-page1" class="page active">
-        <p>This is page 1 of E-Book 1. A thrilling start!</p>
+        <p>This is page 1 of Echoes of the Wild. A thrilling start!</p>
         <button onclick="nextPage('ebook1', 1)">Next</button>
       </div>
       <div id="ebook1-page2" class="page">
@@ -112,9 +133,9 @@ button:hover {
 
     <!-- E-Book 2 Content -->
     <div id="ebook2" class="ebook-content">
-      <h2>E-Book 2</h2>
+      <h2>The Owl's Whisper</h2>
       <div id="ebook2-page1" class="page active">
-        <p>Page 1 of E-Book 2. A mysterious beginning...</p>
+        <p>Page 1 of Whispers of the Pack. A mysterious beginning...</p>
         <button onclick="nextPage('ebook2', 1)">Next</button>
       </div>
       <div id="ebook2-page2" class="page">
@@ -126,9 +147,9 @@ button:hover {
 
     <!-- E-Book 3 Content -->
     <div id="ebook3" class="ebook-content">
-      <h2>E-Book 3</h2>
+      <h2>Echoes in the Dark</h2>
       <div id="ebook3-page1" class="page active">
-        <p>Page 1 of E-Book 3. An epic tale begins...</p>
+        <p>Page 1 of Dance of the Spirit. An epic tale begins...</p>
         <button onclick="nextPage('ebook3', 1)">Next</button>
       </div>
       <div id="ebook3-page2" class="page">
