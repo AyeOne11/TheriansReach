@@ -87,6 +87,13 @@
     .page.active {
       display: block;
     }
+    .cover-art {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #8a7f5e;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
@@ -99,8 +106,8 @@
   <div class="container">
     <div class="book-list">
       <div class="book">
-        <h2>Echoes of the Wild</h2>
-        <button onclick="showEbook('ebook1')">Unravel the Tale</button>
+        <h2>The Owl's Whisper</h2>
+        <button onclick="showEbook('ebook1')">Discover the Tale</button>
       </div>
       <div class="book">
         <h2>Whispers of the Pack</h2>
@@ -112,28 +119,20 @@
       </div>
     </div>
 
-    <!-- E-Book 1 Content -->
+    <!-- The Owl's Whisper Synopsis -->
     <div id="ebook1" class="ebook-content">
-      <h2>The Fox's Shadow</h2>
+      <h2>The Owl's Whisper</h2>
       <div id="ebook1-page1" class="page active">
-        <p>This is page 1 of Echoes of the Wild. A thrilling start!</p>
-        <button onclick="nextPage('ebook1', 1)">Next</button>
-      </div>
-      <div id="ebook1-page2" class="page">
-        <p>Page 2: The adventure continues...</p>
-        <button onclick="prevPage('ebook1', 2)">Previous</button>
-        <button onclick="nextPage('ebook1', 2)">Next</button>
-      </div>
-      <div id="ebook1-page3" class="page">
-        <p>Page 3: The grand finale!</p>
-        <button onclick="prevPage('ebook1', 3)">Previous</button>
+        <img src="owl_whisper_cover.jpg" alt="The Owl's Whisper Cover" class="cover-art">
+        <p><em>The Owl’s Whisper</em> follows Eli, a restless boy in a storm-battered fishing village, who dreams of wings amid the weight of nets and salt. When a mysterious owl drops a carved stone and lures him into a storm-swept moor, Eli discovers an ancient ruin and a guardian who demands he prove his worth. As feathers tear through his skin and his senses sharpen, Eli must choose: claim his Therian owl heritage and guard the cliffs, or return to a human life that no longer fits. A tale of transformation, freedom, and the wild call of the unknown.</p>
+        <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
         <button onclick="hideEbook('ebook1')">Close</button>
       </div>
     </div>
 
-    <!-- E-Book 2 Content -->
+    <!-- Placeholder E-Book 2 Content -->
     <div id="ebook2" class="ebook-content">
-      <h2>The Owl's Whisper</h2>
+      <h2>Whispers of the Pack</h2>
       <div id="ebook2-page1" class="page active">
         <p>Page 1 of Whispers of the Pack. A mysterious beginning...</p>
         <button onclick="nextPage('ebook2', 1)">Next</button>
@@ -145,16 +144,16 @@
       </div>
     </div>
 
-    <!-- E-Book 3 Content -->
+    <!-- Placeholder E-Book 3 Content -->
     <div id="ebook3" class="ebook-content">
-      <h2>Echoes in the Dark</h2>
+      <h2>Dance of the Spirit</h2>
       <div id="ebook3-page1" class="page active">
         <p>Page 1 of Dance of the Spirit. An epic tale begins...</p>
         <button onclick="nextPage('ebook3', 1)">Next</button>
       </div>
       <div id="ebook3-page2" class="page">
         <p>Page 2: The climax approaches...</p>
-        <button onclick="prevPage('ebook3', 2)">Previous</button>
+        <button onclick="prevPage('ebook3',  CLEAN2)">Previous</button>
         <button onclick="hideEbook('ebook3')">Close</button>
       </div>
     </div>
