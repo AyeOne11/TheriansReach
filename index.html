@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <div class="container">
+  <h1>Welcome to Therian's Reach</h1>
+  <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
+  <style>
+body {
+  font-family: 'Georgia', serif; /* Swap Arial for a warmer, storybook feel */
+  margin: 0;
+  padding: 20px;
+  background-color: #e8e2d3; /* Soft parchment beige, grounded yet mystical */
+  color: #3a2e1f; /* Deep earthy brown for text */
+  transition: background-color 0.3s;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #2a5f2a; /* Forest green for a grounded, mystical anchor */
+  font-size: 2.5em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.book {
+  background: #f9f5e9; /* Creamy off-white, like old paper */
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #8a7f5e; /* Subtle earthy border */
+}
+
+.book:hover {
+  transform: translateY(-5px); /* Playful lift */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Mystical glow */
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #5e8a3f; /* Mossy green, grounded yet vibrant */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #3f5e2a; /* Darker green for depth */
+  transform: scale(1.05); /* Playful pop */
+}
+
+.ebook-content {
+  display: none;
+  margin-top: 25px;
+  background: #f9f5e9;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #8a7f5e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Interactive E-Books</h1>
+    <div class="book-list">
+      <div class="book">
+        <h2>E-Book 1</h2>
+        <button onclick="showEbook('ebook1')">Read Now</button>
+      </div>
+      <div class="book">
+        <h2>E-Book 2</h2>
+        <button onclick="showEbook('ebook2')">Read Now</button>
+      </div>
+      <div class="book">
+        <h2>E-Book 3</h2>
+        <button onclick="showEbook('ebook3')">Read Now</button>
+      </div>
+    </div>
+
+    <!-- E-Book 1 Content -->
+    <div id="ebook1" class="ebook-content">
+      <h2>E-Book 1</h2>
+      <div id="ebook1-page1" class="page active">
+        <p>This is page 1 of E-Book 1. A thrilling start!</p>
+        <button onclick="nextPage('ebook1', 1)">Next</button>
+      </div>
+      <div id="ebook1-page2" class="page">
+        <p>Page 2: The adventure continues...</p>
+        <button onclick="prevPage('ebook1', 2)">Previous</button>
+        <button onclick="nextPage('ebook1', 2)">Next</button>
+      </div>
+      <div id="ebook1-page3" class="page">
+        <p>Page 3: The grand finale!</p>
+        <button onclick="prevPage('ebook1', 3)">Previous</button>
+        <button onclick="hideEbook('ebook1')">Close</button>
+      </div>
+    </div>
+
+    <!-- E-Book 2 Content -->
+    <div id="ebook2" class="ebook-content">
+      <h2>E-Book 2</h2>
+      <div id="ebook2-page1" class="page active">
+        <p>Page 1 of E-Book 2. A mysterious beginning...</p>
+        <button onclick="nextPage('ebook2', 1)">Next</button>
+      </div>
+      <div id="ebook2-page2" class="page">
+        <p>Page 2: Secrets unfold...</p>
+        <button onclick="prevPage('ebook2', 2)">Previous</button>
+        <button onclick="hideEbook('ebook2')">Close</button>
+      </div>
+    </div>
+
+    <!-- E-Book 3 Content -->
+    <div id="ebook3" class="ebook-content">
+      <h2>E-Book 3</h2>
+      <div id="ebook3-page1" class="page active">
+        <p>Page 1 of E-Book 3. An epic tale begins...</p>
+        <button onclick="nextPage('ebook3', 1)">Next</button>
+      </div>
+      <div id="ebook3-page2" class="page">
+        <p>Page 2: The climax approaches...</p>
+        <button onclick="prevPage('ebook3', 2)">Previous</button>
+        <button onclick="hideEbook('ebook3')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showEbook(ebookId) {
+      document.querySelectorAll('.ebook-content').forEach(ebook => {
+        ebook.style.display = 'none';
+      });
+      document.getElementById(ebookId).style.display = 'block';
+    }
+
+    function hideEbook(ebookId) {
+      document.getElementById(ebookId).style.display = 'none';
+      resetPages(ebookId);
+    }
+
+    function nextPage(ebookId, currentPage) {
+      document.getElementById(`${ebookId}-page${currentPage}`).classList.remove('active');
+      document.getElementById(`${ebookId}-page${currentPage + 1}`).classList.add('active');
+    }
+
+    function prevPage(ebookId, currentPage) {
+      document.getElementById(`${ebookId}-page${currentPage}`).classList.remove('active');
+      document.getElementById(`${ebookId}-page${currentPage - 1}`).classList.add('active');
+    }
+
+    function resetPages(ebookId) {
+      document.querySelectorAll(`#${ebookId} .page`).forEach(page => {
+        page.classList.remove('active');
+      });
+      document.querySelector(`#${ebookId} .page:first-child`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
