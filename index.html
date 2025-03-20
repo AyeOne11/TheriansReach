@@ -13,7 +13,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: #3a2e1f;
+      color: #fff; /* Lightened for contrast */
       transition: background-color 0.3s;
     }
     .banner {
@@ -54,15 +54,16 @@
       transition: transform 0.3s, box-shadow 0.3s;
       border: 2px solid #5e8a3f;
       border-style: double;
-      display: flex; /* Add flexbox for consistent alignment */
-      flex-direction: column; /* Stack title and button vertically */
-      justify-content: space-between; /* Space out content */
-      min-height: 200px; /* Ensure uniform height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
     }
     .book h2 {
-      margin: 0 0 15px 0; /* Consistent margin below title */
+      margin: 0 0 15px 0;
       font-size: 1.5em;
-      line-height: 1.2; /* Prevent wrapping issues */
+      line-height: 1.2;
+      color: #2a5f2a;
     }
     .book:hover {
       transform: translateY(-5px);
@@ -103,6 +104,56 @@
       border-radius: 10px;
       margin-bottom: 15px;
     }
+    .about-section {
+      margin-top: 40px;
+      background: #f9f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      border: 2px dashed #8a7f5e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+    .about-section h2 {
+      color: #2a5f2a;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .share-buttons {
+      margin: 15px 0;
+    }
+    .share-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 5px;
+      background-color: #5e8a3f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .share-btn:hover {
+      background-color: #3f5e2a;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #5e8a3f;
+      font-size: 0.9em;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    .social-links {
+      margin: 15px 0;
+    }
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      margin: 0 10px;
+      transition: transform 0.3s;
+    }
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
@@ -135,6 +186,10 @@
         <img src="owl_whisper_cover.jpg" alt="The Owl's Whisper Cover" class="cover-art">
         <p><em>The Owl’s Whisper</em> follows Eli, a restless boy in a storm-battered fishing village, who dreams of wings amid the weight of nets and salt. When a mysterious owl drops a carved stone and lures him into a storm-swept moor, Eli discovers an ancient ruin and a guardian who demands he prove his worth. As feathers tear through his skin and his senses sharpen, Eli must choose: claim his Therian owl heritage and guard the cliffs, or return to a human life that no longer fits. A tale of transformation, freedom, and the wild call of the unknown.</p>
         <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
+        <div class="share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
+          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
+        </div>
         <button onclick="hideEbook('ebook1')">Close</button>
       </div>
     </div>
@@ -146,6 +201,10 @@
         <img src="foxs-lantern-cover.jpg" alt="The Fox's Lantern Cover" class="cover-art">
         <p><em>The Fox’s Lantern</em> follows Mira, a solitary girl in snowbound Hrimvall, marked by whispers of her Therian blood. On the longest night, a black fox with glowing eyes leads her to a shimmering grove, where lost spirits beg for guidance and a lantern pulses with her fading light. Year by year, guiding them home hollows her—until she must choose: resist and fade, or surrender to the fox within. A tale of sacrifice, identity, and the fierce glow of becoming whole.</p>
         <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
+        <div class="share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
+          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
+        </div>
         <button onclick="hideEbook('ebook2')">Close</button>
       </div>
     </div>
@@ -163,7 +222,27 @@
         <button onclick="hideEbook('ebook3')">Close</button>
       </div>
     </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+      <h2>About Therian's Reach</h2>
+      <p>Therian's Reach is a sanctuary for Therians—a place to explore your wild side through stories, connect with others, and embrace the mystical call within. Founded by a passionate Therian writer, this space celebrates the duality of human and animal spirits, offering tales like <em>The Owl’s Whisper</em> and <em>The Fox’s Lantern</em> to spark curiosity and wonder. Join the pack, and let’s roam together.</p>
+    </div>
   </div>
+
+  <!-- Footer with Social Links -->
+  <footer>
+    <p>What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61565889596720" target="_blank">
+        <img src="facebook-icon.png" alt="Facebook" class="social-icon">
+      </a>
+      <a href="https://www.tiktok.com/@yourusername" target="_blank">
+        <img src="tiktok-icon.png" alt="TikTok" class="social-icon">
+      </a>
+    </div>
+    <p>© 2025 Therian's Reach. All rights reserved.</p>
+  </footer>
 
   <script>
     function showEbook(ebookId) {
