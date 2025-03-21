@@ -27,6 +27,21 @@
       max-width: 900px;
       margin: 0 auto;
     }
+    .logo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .logo-img {
+      max-width: 150px; /* Adjust size as needed */
+      height: auto;
+      border-radius: 50%; /* Makes the logo circular */
+      border: 2px solid #8a7f5e; /* Matches your border color */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+      transition: transform 0.3s;
+    }
+    .logo-img:hover {
+      transform: scale(1.1); /* Slight zoom on hover */
+    }
     h1 {
       text-align: center;
       color: #e8e2d3;
@@ -63,7 +78,7 @@
       margin: 0 0 15px 0;
       font-size: 1.5em;
       line-height: 1.2;
-      color: #3a2e1f;
+      color: #3a2e1f; /* Dark brown instead of green */
     }
     .book:hover {
       transform: translateY(-5px);
@@ -92,14 +107,14 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
     .ebook-content h2 {
-      color: #3a2e1f;
+      color: #3a2e1f; /* Dark brown instead of green */
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
     .ebook-content p {
-      color: #3a2e1f;
+      color: #3a2e1f; /* Dark brown instead of green */
     }
     .ebook-content p strong {
-      color: #4a3e2f;
+      color: #4a3e2f; /* Slightly lighter brown for emphasis */
       font-weight: bold;
     }
     .page {
@@ -125,11 +140,8 @@
       text-align: center;
     }
     .about-section h2 {
-      color: #3a2e1f; /* Dark brown to match other text */
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    }
-    .about-section p {
-      color: #3a2e1f; /* Dark brown for contrast against the light background */
+      color: #333; /* Deep gray instead of green */
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
     }
     .share-buttons {
       margin: 15px 0;
@@ -190,6 +202,11 @@
 <body>
   <div class="banner">
     <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="therians_reach_logo.png" alt="Therian's Reach Logo" class="logo-img">
+        </a>
+      </div>
       <h1>Welcome to Therian's Reach</h1>
       <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
     </div>
@@ -226,7 +243,7 @@
     </div>
 
     <!-- The Fox's Lantern Synopsis -->
-    <div id="ebook2" class="ebook-content">
+    < discord id="ebook2" class="ebook-content">
       <h2>The Fox's Lantern</h2>
       <div id="ebook2-page1" class="page active">
         <img src="foxs-lantern-cover.jpg" alt="The Fox's Lantern Cover" class="cover-art">
@@ -305,5 +322,5 @@
       document.querySelector(`#${ebookId} .page:first-child`).classList.add('active');
     }
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'923f366cafc344e7',t:'MTc0MjU3ODU5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
