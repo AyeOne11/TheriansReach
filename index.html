@@ -32,15 +32,15 @@
       margin-bottom: 15px;
     }
     .logo-img {
-      max-width: 150px; /* Adjust size as needed */
+      max-width: 150px;
       height: auto;
-      border-radius: 50%; /* Makes the logo circular */
-      border: 2px solid #8a7f5e; /* Matches your border color */
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+      border-radius: 50%;
+      border: 2px solid #8a7f5e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s;
     }
     .logo-img:hover {
-      transform: scale(1.1); /* Slight zoom on hover */
+      transform: scale(1.1);
     }
     h1 {
       text-align: center;
@@ -78,7 +78,7 @@
       margin: 0 0 15px 0;
       font-size: 1.5em;
       line-height: 1.2;
-      color: #3a2e1f; /* Dark brown instead of green */
+      color: #3a2e1f;
     }
     .book:hover {
       transform: translateY(-5px);
@@ -107,14 +107,14 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
     .ebook-content h2 {
-      color: #3a2e1f; /* Dark brown instead of green */
+      color: #3a2e1f;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
     .ebook-content p {
-      color: #3a2e1f; /* Dark brown instead of green */
+      color: #3a2e1f;
     }
     .ebook-content p strong {
-      color: #4a3e2f; /* Slightly lighter brown for emphasis */
+      color: #4a3e2f;
       font-weight: bold;
     }
     .page {
@@ -132,7 +132,7 @@
     }
     .about-section {
       margin-top: 40px;
-      background: #f9f5e9; /* Can change to #e8e2d3 if needed */
+      background: #f9f5e9;
       padding: 25px;
       border-radius: 15px;
       border: 2px dashed #8a7f5e;
@@ -140,11 +140,11 @@
       text-align: center;
     }
     .about-section h2 {
-      color: #1a1a1a; /* Darker near-black gray for better contrast */
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Softer shadow for readability */
+      color: #1a1a1a;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     }
     .about-section p {
-      color: #2a2a2a; /* Dark gray for the paragraph text */
+      color: #2a2a2a;
     }
     .share-buttons {
       margin: 15px 0;
@@ -225,8 +225,8 @@
         <button onclick="showEbook('ebook2')">Follow the Glow</button>
       </div>
       <div class="book">
-        <h2>Dance of the Spirit</h2>
-        <button onclick="showEbook('ebook3')">Step Into Mystery</button>
+        <h2>Echoes in the Dark</h2>
+        <button onclick="showEbook('ebook3')">Unravel the Shadows</button>
       </div>
     </div>
 
@@ -260,16 +260,17 @@
       </div>
     </div>
 
-    <!-- Placeholder E-Book 3 Content -->
+    <!-- Echoes in the Dark Synopsis -->
     <div id="ebook3" class="ebook-content">
-      <h2>Dance of the Spirit</h2>
+      <h2>Echoes in the Dark</h2>
       <div id="ebook3-page1" class="page active">
-        <p>Page 1 of Dance of the Spirit. An epic tale begins...</p>
-        <button onclick="nextPage('ebook3', 1)">Next</button>
-      </div>
-      <div id="ebook3-page2" class="page">
-        <p>Page 2: The climax approaches...</p>
-        <button onclick="prevPage('ebook3', 2)">Previous</button>
+        <img src="./echoes_in_the_dark_cover.jpg" alt="Echoes in the Dark Cover" class="cover-art">
+        <p><em>Echoes in the Dark</em> tracks Rune Carter, a freshman drowning in high school’s fluorescent chaos, her wild instincts clawing beneath a human shell. A tail she’s buried since middle school sways in secret—until a black fox’s desperate cry, <em>Help me</em>, pierces her dreams and drags her into a hidden Therian world beneath the city. There, she frees Lys, a runaway with amber eyes, from hunters’ chains. Torn between her worried parents and the north tunnel’s pull, Rune must decide: suppress her predator’s heart or embrace it fully in a realm baring its teeth.</p>
+        <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
+        <div class="share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
+          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
+        </div>
         <button onclick="hideEbook('ebook3')">Close</button>
       </div>
     </div>
@@ -325,5 +326,5 @@
       document.querySelector(`#${ebookId} .page:first-child`).classList.add('active');
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'923f366cafc344e7',t:'MTc0MjU3ODU5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
