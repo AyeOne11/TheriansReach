@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therian's Reach - Tales</title>
+  <style>
+    /* Copy your existing <style> section from index.html here */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url('therian_forest2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+    .banner {
+      background-color: rgba(46, 67, 33, 0.85);
+      padding: 20px 0;
+      border-bottom: 3px solid #8a7f5e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .logo-img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 50%;
+      border: 2px solid #8a7f5e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    .logo-img:hover {
+      transform: scale(1.1);
+    }
+    h1 {
+      text-align: center;
+      color: #e8e2d3;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .tagline {
+      font-style: italic;
+      color: #d1c9a5;
+      text-align: center;
+      margin-top: -10px;
+      font-size: 1.2em;
+    }
+    /* Story Wall Styles */
+    .story-wall {
+      margin-top: 40px;
+    }
+    .story-wall h2 {
+      text-align: center;
+      color: #e8e2d3;
+      font-size: 2em;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .story-card {
+      background: #f9f5e9;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px dashed #8a7f5e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .story-card:hover {
+      transform: translateY(-5px);
+    }
+    .story-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.3em;
+      color: #3a2e1f;
+    }
+    .story-card p {
+      margin: 0 0 10px 0;
+      color: #3a2e1f;
+      font-size: 1em;
+    }
+    .story-card small {
+      color: #4a3e2f;
+      font-style: italic;
+    }
+    /* Submission Form Styles */
+    .story-submit {
+      margin-top: 40px;
+      background: #f9f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      border: 2px dashed #8a7f5e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .story-submit h2 {
+      text-align: center;
+      color: #3a2e1f;
+      font-size: 1.8em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .story-submit form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .story-submit input, .story-submit textarea {
+      padding: 10px;
+      border: 1px solid #8a7f5e;
+      border-radius: 5px;
+      font-family: 'Georgia', serif;
+    }
+    .story-submit button {
+      padding: 12px 24px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .story-submit button:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
+    /* Footer Styles (copied from index.html) */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      background-color: rgba(46, 67, 33, 0.85);
+      padding: 20px;
+      border-top: 3px solid #8a7f5e;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+      color: #d1c9a5;
+      font-size: 0.9em;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    footer .riddle {
+      font-style: italic;
+      color: #e8e2d3;
+    }
+    .social-links {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="therians_reach_logo.png" alt="Therian's Reach Logo" class="logo-img">
+        </a>
+      </div>
+      <h1>The Pack's Tales</h1>
+      <p class="tagline">Share your wild whispers and roam with us.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Story Wall -->
+    <div class="story-wall">
+      <h2>Latest Tales</h2>
+      <div class="story-card">
+        <h3>Whisper of the Pines</h3>
+        <p>A shadow darted through the trees, eyes like moons. I followed, paws silent, heart loud.</p>
+        <small>By MoonClaw</small>
+      </div>
+      <div class="story-card">
+        <h3>Flight at Dusk</h3>
+        <p>Wings burst from my back as the sun bled red. The wind called me home.</p>
+        <small>By FeatherSoul</small>
+      </div>
+    </div>
+
+    <!-- Submission Form -->
+    <div class="story-submit">
+      <h2>Share Your Tale</h2>
+      <form id="story-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+        <input type="text" name="username" placeholder="Your Therian Name" required>
+        <input type="text" name="title" placeholder="Story Title" required>
+        <textarea name="content" maxlength="200" placeholder="Your tale (200 chars max)" required></textarea>
+        <button type="submit">Submit to the Pack</button>
+      </form>
+      <p><small>Pack Rules: Keep it kind, Therian-themed, and under 200 characters. Submissions reviewed before posting.</small></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p class="riddle">What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@theriansreach" target="_blank">
+        <img src="tiktok_icon.jpg" alt="TikTok" class="social-icon">
+      </a>
+    </div>
+    <p>© 2025 Therian's Reach. All rights reserved.</p>
+  </footer>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+<script>
+  // Your Firebase config (from Firebase console)
+  const firebaseConfig = {
+    apiKey: "your-api-key",
+    authDomain: "your-app.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-app.appspot.com",
+    messagingSenderId: "your-sender-id",
+    appId: "your-app-id"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // Submit Form
+  document.getElementById('story-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const title = e.target.title.value;
+    const content = e.target.content.value;
+    db.collection('stories').add({
+      username: username,
+      title: title,
+      content: content,
+      approved: false // For moderation
+    }).then(() => {
+      alert('Tale submitted! Awaiting pack approval.');
+      e.target.reset();
+    });
+  });
+
+  // Display Approved Stories
+  const storyWall = document.querySelector('.story-wall');
+  db.collection('stories').where('approved', '==', true).onSnapshot((snapshot) => {
+    storyWall.innerHTML = '<h2>Latest Tales</h2>'; // Reset content
+    snapshot.forEach((doc) => {
+      const story = doc.data();
+      storyWall.innerHTML += `
+        <div class="story-card">
+          <h3>${story.title}</h3>
+          <p>${story.content}</p>
+          <small>By ${story.username}</small>
+        </div>`;
+    });
+  });
+</script>
+</body>
+</html>
