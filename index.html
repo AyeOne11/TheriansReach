@@ -200,18 +200,41 @@
     .social-icon:hover {
       transform: scale(1.2);
     }
+    /* Navigation Styles */
+    .nav-links {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 10px;
+      background-color: #5e8a3f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .nav-btn:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
   <div class="banner">
     <div class="container">
       <div class="logo">
-        <a href="/">
+        <a href="./index.html">
           <img src="therians_reach_logo.png" alt="Therian's Reach Logo" class="logo-img">
         </a>
       </div>
       <h1>Welcome to Therian's Reach</h1>
       <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
+      <nav class="nav-links">
+        <a href="./index.html" class="nav-btn">Home</a>
+        <a href="./tales.html" class="nav-btn">Tales</a>
+      </nav>
     </div>
   </div>
   <div class="container">
@@ -285,9 +308,8 @@
   <!-- Footer with Social Links (Icon Version) -->
   <footer>
     <p class="riddle">What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...
-<h4>Follow us on TikTok</h4></p>
+    <h4>Follow us on TikTok</h4></p>
     <div class="social-links">
-    
       <a href="https://www.tiktok.com/@theriansreach" target="_blank">
         <img src="tiktok_icon.jpg" alt="TikTok" class="social-icon"> 
       </a>
@@ -325,5 +347,5 @@
       document.querySelector(`#${ebookId} .page:first-child`).classList.add('active');
     }
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'924176984a82822c',t:'MTc0MjYwMjE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
