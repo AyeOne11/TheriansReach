@@ -196,7 +196,7 @@
   <div class="container">
     <div class="contact-section">
       <h2>Send a Message</h2>
-      <form class="contact-form" action="mailto:thesilentsector@pm.me" method="post" enctype="text/plain">
+      <form class="contact-form" id="contact-form">
         <input type="text" name="name" placeholder="Your Therian Name" required>
         <input type="email" name="email" placeholder="Your Email (to howl back)" required>
         <textarea name="message" placeholder="Your message to the pack..." required></textarea>
@@ -214,5 +214,47 @@
     </div>
     <p>© 2025 Therian's Reach. All rights reserved.</p>
   </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <script>
+    // Firebase configuration provided
+    const firebaseConfig = {
+      apiKey: "AIzaSyDy7u37ZuGouL3VlJONIziuhn_BCNhLWy8",
+      authDomain: "theriansreachweb.firebaseapp.com",
+      projectId: "theriansreachweb",
+      storageBucket: "theriansreachweb.firebasestorage.app",
+      messagingSenderId: "877949471986",
+      appId: "1:877949471986:web:8c0e14049d3c4dbd31d46b",
+      measurementId: "G-07D04BQBTJ"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = e.target.name.value;
+      const email = e.target.email.value;
+      const message = e.target.message.value;
+
+      // Save to Firestore
+      db.collection('contacts').add({
+        name: name,
+        email: email,
+        message: message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        alert('Your howl has been sent! The pack will respond soon.');
+        e.target.reset();
+      }).catch((error) => {
+        console.error('Error sending message: ', error);
+        alert('There was an error sending your howl. Please try again later.');
+      });
+    });
+  </script>
 </body>
 </html>
