@@ -55,6 +55,44 @@
       margin-top: -10px;
       font-size: 1.2em;
     }
+    /* Video Section Styles */
+    .video-section {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .video-section h2 {
+      color: #e8e2d3;
+      font-size: 2em;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .video-item {
+      background: rgba(249, 245, 233, 0.9);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border: 2px solid #5e8a3f;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+    .video-item video {
+      border-radius: 10px;
+      border: 2px solid #8a7f5e;
+    }
+    .video-item p {
+      color: #3a2e1f;
+      font-style: italic;
+      margin-top: 10px;
+    }
+    /* Book List Styles */
     .book-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -200,7 +238,6 @@
     .social-icon:hover {
       transform: scale(1.2);
     }
-    /* Navigation Styles */
     .nav-links {
       text-align: center;
       margin-top: 15px;
@@ -238,6 +275,28 @@
     </div>
   </div>
   <div class="container">
+    <!-- Video Section -->
+    <div class="video-section">
+      <h2>Explore Therian's Reach</h2>
+      <div class="video-grid">
+        <div class="video-item">
+          <video controls width="100%" poster="therian_video1_poster.jpg">
+            <source src="therian_video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p><em>A glimpse into the wild heart of Therian's Reach.</em></p>
+        </div>
+        <div class="video-item">
+          <video controls width="100%" poster="therian_video2_poster.jpg">
+            <source src="therian_video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p><em>The call of the shadows awaits.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-book Section -->
     <div class="book-list">
       <div class="book">
         <h2>The Owl's Whisper</h2>
@@ -282,70 +341,3 @@
         <button onclick="hideEbook('ebook2')">Close</button>
       </div>
     </div>
-
-    <!-- Echoes in the Dark Synopsis -->
-    <div id="ebook3" class="ebook-content">
-      <h2>Echoes in the Dark</h2>
-      <div id="ebook3-page1" class="page active">
-        <img src="echo_cover.jpg" alt="Echoes in the Dark Cover" class="cover-art">
-        <p><em>Echoes in the Dark</em> tracks Rune Carter, a freshman drowning in high school’s fluorescent chaos, her wild instincts clawing beneath a human shell. A tail she’s buried since middle school sways in secret—until a black fox’s desperate cry, <em>Help me</em>, pierces her dreams and drags her into a hidden Therian world beneath the city. There, she frees Lys, a runaway with amber eyes, from hunters’ chains. Torn between her worried parents and the north tunnel’s pull, Rune must decide: suppress her predator’s heart or embrace it fully in a realm baring its teeth.</p>
-        <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
-        <div class="share-buttons">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
-          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
-        </div>
-        <button onclick="hideEbook('ebook3')">Close</button>
-      </div>
-    </div>
-
-    <!-- About Section -->
-    <div class="about-section">
-      <h2>About Therian's Reach</h2>
-      <p>Therian's Reach is a sanctuary for Therians—a place to explore your wild side through stories, connect with others, and embrace the mystical call within. Founded by a passionate Therian writer, this space celebrates the duality of human and animal spirits, offering tales like <em>The Owl’s Whisper</em> and <em>The Fox’s Lantern</em> to spark curiosity and wonder. Join the pack, and let’s roam together.</p>
-    </div>
-  </div>
-
-  <!-- Footer with Social Links (Icon Version) -->
-  <footer>
-    <p class="riddle">What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...
-    <h4>Follow us on TikTok</h4></p>
-    <div class="social-links">
-      <a href="https://www.tiktok.com/@theriansreach" target="_blank">
-        <img src="tiktok_icon.jpg" alt="TikTok" class="social-icon"> 
-      </a>
-    </div>
-    <p>© 2025 Therian's Reach. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function showEbook(ebookId) {
-      document.querySelectorAll('.ebook-content').forEach(ebook => {
-        ebook.style.display = 'none';
-      });
-      document.getElementById(ebookId).style.display = 'block';
-    }
-
-    function hideEbook(ebookId) {
-      document.getElementById(ebookId).style.display = 'none';
-      resetPages(ebookId);
-    }
-
-    function nextPage(ebookId, currentPage) {
-      document.getElementById(`${ebookId}-page${currentPage}`).classList.remove('active');
-      document.getElementById(`${ebookId}-page${currentPage + 1}`).classList.add('active');
-    }
-
-    function prevPage(ebookId, currentPage) {
-      document.getElementById(`${ebookId}-page${currentPage}`).classList.remove('active');
-      document.getElementById(`${ebookId}-page${currentPage - 1}`).classList.add('active');
-    }
-
-    function resetPages(ebookId) {
-      document.querySelectorAll(`#${ebookId} .page`).forEach(page => {
-        page.classList.remove('active');
-      });
-      document.querySelector(`#${ebookId} .page:first-child`).classList.add('active');
-    }
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'924176984a82822c',t:'MTc0MjYwMjE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
