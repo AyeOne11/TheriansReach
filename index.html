@@ -38,9 +38,14 @@
       border: 2px solid #8a7f5e;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s;
+      animation: pulse 3s infinite ease-in-out; /* Subtle pulsing */
     }
     .logo-img:hover {
       transform: scale(1.1);
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
     h1 {
       text-align: center;
@@ -73,6 +78,22 @@
       background-color: #3f5e2a;
       transform: scale(1.05);
     }
+    .sound-toggle {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .sound-btn {
+      padding: 8px 16px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .sound-btn:hover {
+      background-color: #3f5e2a;
+    }
     .about-section {
       margin-bottom: 40px;
       background: #f9f5e9;
@@ -81,13 +102,24 @@
       border: 2px dashed #8a7f5e;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards; /* Fade in on load */
     }
     .about-section h2 {
       color: #1a1a1a;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+      animation: drift 4s infinite ease-in-out; /* Subtle drift */
     }
     .about-section p {
       color: #2a2a2a;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drift {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     .video-section {
       margin-bottom: 40px;
@@ -98,6 +130,7 @@
       font-size: 2em;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       margin-bottom: 20px;
+      animation: drift 4s infinite ease-in-out; /* Subtle drift */
     }
     .video-grid {
       display: grid;
@@ -111,6 +144,9 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       border: 2px solid #5e8a3f;
       transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards; /* Fade in on load */
+      animation-delay: 0.2s; /* Slight stagger */
     }
     .video-item:hover {
       transform: translateY(-5px);
@@ -133,12 +169,16 @@
       border: 2px dashed #8a7f5e;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards; /* Fade in on load */
+      animation-delay: 0.4s; /* Slight stagger */
     }
     .culture-section h2 {
       color: #3a2e1f;
       font-size: 2em;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
       margin-bottom: 20px;
+      animation: drift 4s infinite ease-in-out; /* Subtle drift */
     }
     .culture-section p {
       color: #3a2e1f;
@@ -196,6 +236,10 @@
   </div>
 
   <div class="container">
+    <div class="sound-toggle">
+      <button class="sound-btn" onclick="toggleSound()">Tribal Echoes: Off</button>
+    </div>
+
     <div class="about-section">
       <h2>About Therian's Reach</h2>
       <p>Therian's Reach is a sanctuary for Therians—a place to explore your wild side through stories, connect with others, and embrace the mystical call within. Founded by a passionate Therian writer, this space celebrates the duality of human and animal spirits, offering a den to spark curiosity and wonder. Join the pack, and let’s roam together.</p>
@@ -236,5 +280,22 @@
     </div>
     <p>© 2025 Therian's Reach. All rights reserved.</p>
   </footer>
+
+  <script>
+    const tribalSound = new Audio('tribal_music.mp3');
+    tribalSound.loop = true;
+    let isPlaying = false;
+
+    function toggleSound() {
+      if (isPlaying) {
+        tribalSound.pause();
+        document.querySelector('.sound-btn').textContent = 'Tribal Echoes: Off';
+      } else {
+        tribalSound.play();
+        document.querySelector('.sound-btn').textContent = 'Tribal Echoes: On';
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
 </html>
