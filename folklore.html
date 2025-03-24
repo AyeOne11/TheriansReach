@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therian's Reach - Therian Folklore</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url('therian_forest2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+    .banner {
+      background-color: rgba(46, 67, 33, 0.85);
+      padding: 20px 0;
+      border-bottom: 3px solid #8a7f5e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .logo-img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 50%;
+      border: 2px solid #8a7f5e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+      animation: pulse 3s infinite ease-in-out;
+    }
+    .logo-img:hover {
+      transform: scale(1.1);
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    h1 {
+      text-align: center;
+      color: #e8e2d3;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .tagline {
+      font-style: italic;
+      color: #d1c9a5;
+      text-align: center;
+      margin-top: -10px;
+      font-size: 1.2em;
+    }
+    .nav-links {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 10px;
+      background-color: #5e8a3f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .nav-btn:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .book {
+      background: #f9f5e9;
+      background-image: linear-gradient(to bottom right, rgba(94, 138, 63, 0.1), transparent);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid #5e8a3f;
+      border-style: double;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+    .book:nth-child(1) { animation-delay: 0.2s; }
+    .book:nth-child(2) { animation-delay: 0.4s; }
+    .book:nth-child(3) { animation-delay: 0.6s; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .book h2 {
+      margin: 0 0 15px 0;
+      font-size: 1.5em;
+      line-height: 1.2;
+      color: #3a2e1f;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .book:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+    button {
+      padding: 12px 24px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
+    .ebook-content {
+      display: none;
+      margin-top: 25px;
+      background: #f9f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      border: 2px dashed #8a7f5e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .ebook-content h2 {
+      color: #3a2e1f;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .ebook-content p {
+      color: #3a2e1f;
+    }
+    .ebook-content p strong {
+      color: #4a3e2f;
+      font-weight: bold;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    .cover-art {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #8a7f5e;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .share-buttons {
+      margin: 15px 0;
+    }
+    .share-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 5px;
+      background-color: #5e8a3f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .share-btn:hover {
+      background-color: #3f5e2a;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      background-color: rgba(46, 67, 33, 0.85);
+      padding: 20px;
+      border-top: 3px solid #8a7f5e;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+      color: #d1c9a5;
+      font-size: 0.9em;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    footer .riddle {
+      font-style: italic;
+      color: #e8e2d3;
+    }
+    .social-links {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="container">
+      <div class="logo">
+        <a href="./index.html">
+          <img src="therians_reach_logo.png" alt="Therian's Reach Logo" class="logo-img">
+        </a>
+      </div>
+      <h1>Therian Folklore</h1>
+      <p class="tagline">Tales of the wild, whispered by the pack.</p>
+      <nav class="nav-links">
+        <a href="./index.html" class="nav-btn">Home</a>
+        <a href="./shares.html" class="nav-btn">Pack Shares</a>
+        <a href="./contact.html" class="nav-btn">Contact Us</a>
+        <a href="./folklore.html" class="nav-btn">Therian Folklore</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="book-list">
+      <div class="book">
+        <h2>The Owl's Whisper</h2>
+        <button onclick="showEbook('ebook1')">Discover the Tale</button>
+      </div>
+      <div class="book">
+        <h2>The Fox's Lantern</h2>
+        <button onclick="showEbook('ebook2')">Follow the Glow</button>
+      </div>
+      <div class="book">
+        <h2>Echoes in the Dark</h2>
+        <button onclick="showEbook('ebook3')">Unravel the Shadows</button>
+      </div>
+    </div>
+
+    <!-- The Owl's Whisper Synopsis -->
+    <div id="ebook1" class="ebook-content">
+      <h2>The Owl's Whisper</h2>
+      <div id="ebook1-page1" class="page active">
+        <img src="owl_whisper_cover.jpg" alt="The Owl's Whisper Cover" class="cover-art">
+        <p><em>The Owl’s Whisper</em> follows Eli, a restless boy in a storm-battered fishing village, who dreams of wings amid the weight of nets and salt. When a mysterious owl drops a carved stone and lures him into a storm-swept moor, Eli discovers an ancient ruin and a guardian who demands he prove his worth. As feathers tear through his skin and his senses sharpen, Eli must choose: claim his Therian owl heritage and guard the cliffs, or return to a human life that no longer fits. A tale of transformation, freedom, and the wild call of the unknown.</p>
+        <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
+        <div class="share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
+          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
+        </div>
+        <button onclick="hideEbook('ebook1')">Close</button>
+      </div>
+    </div>
+
+    <!-- The Fox's Lantern Synopsis -->
+    <div id="ebook2" class="ebook-content">
+      <h2>The Fox's Lantern</h2>
+      <div id="ebook2-page1" class="page active">
+        <img src="foxs-lantern-cover.jpg" alt="The Fox's Lantern Cover" class="cover-art">
+        <p><em>The Fox’s Lantern</em> follows Mira, a solitary girl in snowbound Hrimvall, marked by whispers of her Therian blood. On the longest night, a black fox with glowing eyes leads her to a shimmering grove, where lost spirits beg for guidance and a lantern pulses with her fading light. Year by year, guiding them home hollows her—until she must choose: resist and fade, or surrender to the fox within. A tale of sacrifice, identity, and the fierce glow of becoming whole.</p>
+        <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
+        <div class="share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
+          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
+        </div>
+        <button onclick="hideEbook('ebook2')">Close</button>
+      </div>
+    </div>
+
+    <!-- Echoes in the Dark Synopsis -->
+    <div id="ebook3" class="ebook-content">
+      <h2>Echoes in the Dark</h2>
+      <div id="ebook3-page1" class="page active">
+        <img src="echo_cover.jpg" alt="Echoes in the Dark Cover" class="cover-art">
+        <p><em>Echoes in the Dark</em> tracks Rune Carter, a freshman drowning in high school’s fluorescent chaos, her wild instincts clawing beneath a human shell. A tail she’s buried since middle school sways in secret—until a black fox’s desperate cry, <em>Help me</em>, pierces her dreams and drags her into a hidden Therian world beneath the city. There, she frees Lys, a runaway with amber eyes, from hunters’ chains. Torn between her worried parents and the north tunnel’s pull, Rune must decide: suppress her predator’s heart or embrace it fully in a realm baring its teeth.</p>
+        <p><strong>Available soon on Kindle Direct Publishing!</strong></p>
+        <div class="share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://theriansreach.com/" target="_blank" class="share-btn">Share on Facebook</a>
+          <a href="https://www.tiktok.com/share?url=https://theriansreach.com/" target="_blank" class="share-btn">Share on TikTok</a>
+        </div>
+        <button onclick="hideEbook('ebook3')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="riddle">What has paws but walks with a human’s grace, eyes that glow in the moon’s embrace? Answer on our socials...</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@theriansreach" target="_blank">
+        <img src="tiktok_icon.jpg" alt="TikTok" class="social-icon">
+      </a>
+    </div>
+    <p>© 2025 Therian's Reach. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showEbook(ebookId) {
+      document.querySelectorAll('.ebook-content').forEach(ebook => {
+        ebook.style.display = 'none';
+      });
+      document.getElementById(ebookId).style.display = 'block';
+    }
+
+    function hideEbook(ebookId) {
+      document.getElementById(ebookId).style.display = 'none';
+      resetPages(ebookId);
+    }
+
+    function resetPages(ebookId) {
+      document.querySelectorAll(`#${ebookId} .page`).forEach(page => {
+        page.classList.remove('active');
+      });
+      document.querySelector(`#${ebookId} .page:first-child`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
