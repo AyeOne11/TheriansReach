@@ -83,13 +83,15 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
     .share-card {
-      background: #f9f5e9;
+      background: #f9f5e9 url('claw_marks.png') no-repeat top left; /* Claw-mark flair */
+      background-size: 100px;
       padding: 20px;
       border-radius: 10px;
       border: 2px dashed #8a7f5e;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       margin-bottom: 20px;
       transition: transform 0.3s;
+      position: relative;
     }
     .share-card:hover {
       transform: translateY(-5px);
@@ -107,6 +109,17 @@
     .share-card small {
       color: #4a3e2f;
       font-style: italic;
+    }
+    .spirit-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 0.9em;
+      text-transform: uppercase;
     }
     .comments {
       margin-top: 15px;
@@ -161,7 +174,7 @@
       flex-direction: column;
       gap: 15px;
     }
-    .share-submit input, .share-submit textarea {
+    .share-submit input, .share-submit textarea, .share-submit select {
       padding: 10px;
       border: 1px solid #8a7f5e;
       border-radius: 5px;
@@ -179,6 +192,22 @@
     .share-submit button:hover {
       background-color: #3f5e2a;
       transform: scale(1.05);
+    }
+    .sound-toggle {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .sound-btn {
+      padding: 8px 16px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .sound-btn:hover {
+      background-color: #3f5e2a;
     }
     footer {
       text-align: center;
@@ -231,11 +260,16 @@
   </div>
 
   <div class="container">
+    <div class="sound-toggle">
+      <button class="sound-btn" onclick="toggleSound()">Forest Whispers: Off</button>
+    </div>
+
     <div class="share-wall">
       <h2>The Den Wall</h2>
       <div class="share-card" data-id="1">
+        <div class="spirit-tag">Fox</div>
         <h3>Whisper of the Pines</h3>
-        <p>A shadow darted through the trees, eyes like moons. I followed, paws silent, heart loud.</p>
+        <p>A shadow darted through the trees, eyes like moons. I followed, paws silent, heart loud. <i>**This is just an example! Please submit your own artwork and stories to be showcased here.</i></p>
         <small>By MoonClaw</small>
         <div class="comments">
           <div class="comment">Love the imagery! - StarFang</div>
@@ -247,8 +281,9 @@
         </div>
       </div>
       <div class="share-card" data-id="2">
-        <h3>My Wolf Eyes</h3>
-        <p>Caught my reflection today—golden eyes stared back. Not human, not anymore.</p>
+        <div class="spirit-tag">Wolf</div>
+        <h3Wolf Eyes</h3>
+        <p>Caught my reflection today—golden eyes stared back. Not human, not anymore. <i>**This is just an example! Please submit your artwork and stories to be showcased here.</i></p>
         <small>By DuskPelt</small>
         <div class="comments"></div>
         <div class="comment-form">
@@ -264,6 +299,13 @@
       <form id="share-form">
         <input type="text" id="username" placeholder="Your Therian Name" required>
         <input type="text" id="title" placeholder="What’s this about?" required>
+        <select id="spirit" required>
+          <option value="" disabled selected>Your Spirit Type</option>
+          <option value="Wolf">Wolf</option>
+          <option value="Fox">Fox</option>
+          <option value="Owl">Owl</option>
+          <option value="Other">Other</option>
+        </select>
         <textarea id="content" placeholder="Share your Therian moment, art, or wild thoughts (500 chars max)" maxlength="500" required></textarea>
         <button type="submit">Add to the Den</button>
       </form>
@@ -283,16 +325,32 @@
 
   <script>
     const shares = [
-      { id: '1', title: 'Whisper of the Pines', content: 'A shadow darted through the trees, eyes like moons. I followed, paws silent, heart loud.', username: 'MoonClaw', comments: ['Love the imagery! - StarFang'] },
-      { id: '2', title: 'My Wolf Eyes', content: 'Caught my reflection today—golden eyes stared back. Not human, not anymore.', username: 'DuskPelt', comments: [] }
+      { id: '1', title: 'Example Title 1', content: 'A shadow darted through the trees, eyes like moons. I followed, paws silent, heart loud.', username: 'MoonClaw', spirit: 'Fox', comments: ['Love the imagery! - StarFang'] },
+      { id: '2', title: 'Example Title 2', content: 'Caught my reflection today—golden eyes stared back. Not human, not anymore.', username: 'DuskPelt', spirit: 'Wolf', comments: [] }
     ];
+
+    const forestSound = new Audio('forest_ambient.mp3'); // Add your ambient sound file
+    forestSound.loop = true;
+    let isPlaying = true;
+
+    function toggleSound() {
+      if (isPlaying) {
+        forestSound.pause();
+        document.querySelector('.sound-btn').textContent = 'Forest Whispers: Off';
+      } else {
+        forestSound.play();
+        document.querySelector('.sound-btn').textContent = 'Forest Whispers: On';
+      }
+      isPlaying = !isPlaying;
+    }
 
     document.getElementById('share-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const username = document.getElementById('username').value;
       const title = document.getElementById('title').value;
+      const spirit = document.getElementById('spirit').value;
       const content = document.getElementById('content').value;
-      const newShare = { id: Date.now().toString(), title, content, username, comments: [] };
+      const newShare = { id: Date.now().toString(), title, content, username, spirit, comments: [] };
       shares.push(newShare);
       renderShares();
       e.target.reset();
@@ -316,6 +374,7 @@
       shares.forEach(share => {
         shareWall.innerHTML += `
           <div class="share-card" data-id="${share.id}">
+            <div class="spirit-tag">${share.spirit}</div>
             <h3>${share.title}</h3>
             <p>${share.content}</p>
             <small>By ${share.username}</small>
