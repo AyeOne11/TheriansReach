@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Therian Coffee Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #3b2f2f; /* Fallback color (dark wood tone) if image fails */
+    }
+    .coffee-shop-bg {
+      width: 100%;
+      height: 100vh;
+      background: url('coffee_shop.gif') no-repeat center/cover;
+      position: relative;
+      animation: warm-glow 10s infinite;
+    }
+    .therian-vines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 50, 0, 0.3), transparent);
+      opacity: 0.5;
+      animation: sway 15s infinite;
+    }
+    .play-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: sans-serif;
+    }
+    @keyframes warm-glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.1); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Using the animated GIF as the background -->
+  <div class="coffee-shop-bg">
+    <div class="therian-vines"></div>
+  </div>
+
+  <!-- Alternative: Use an MP4 video for better performance (uncomment to use) -->
+  <!--
+  <video autoplay loop muted playsinline class="coffee-shop-bg">
+    <source src="coffee_shop_animated.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+  -->
+
+  <audio id="coffee-shop-audio" loop>
+    <source src="coffee_shop_sounds.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <button class="play-button" onclick="playAudio()">Play Audio</button>
+  <script>
+    // Audio control
+    const audio = document.getElementById('coffee-shop-audio');
+    function playAudio() {
+      audio.play().then(() => {
+        console.log("Audio playing successfully");
+        document.querySelector('.play-button').style.display = 'none'; // Hide button after playing
+      }).catch(error => {
+        console.error("Audio failed to play:", error);
+      });
+    }
+
+    // Debug audio loading
+    audio.addEventListener('error', () => {
+      console.error("Error loading audio file. Check the file path: 'coffee_shop_sounds.mp3'.");
+    });
+
+    audio.addEventListener('loadeddata', () => {
+      console.log("Audio file loaded successfully");
+    });
+
+    console.log("Therian Coffee Shop loaded");
+  </script>
+</body>
+</html>
