@@ -94,65 +94,116 @@
     .sound-btn:hover {
       background-color: #3f5e2a;
     }
-    .about-section {
+    .news-section {
       margin-bottom: 40px;
-      background: #f9f5e9;
+      background: rgba(46, 67, 33, 0.9);
       padding: 25px;
-      border-radius: 15px;
-      border: 2px dashed #8a7f5e;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      border: 2px solid #3f5e2a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       text-align: center;
+      position: relative;
+      overflow: hidden;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
+      animation-delay: 0.2s;
+    }
+    .news-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('claw_scratch.png') no-repeat top left;
+      background-size: 80px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .news-section h2 {
+      color: #e8e2d3;
+      font-size: 2.2em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      animation: flicker 3s infinite ease-in-out;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .news-item {
+      background: rgba(249, 245, 233, 0.85);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #8a7f5e;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    .news-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(94, 138, 63, 0.5);
+    }
+    .news-item h3 {
+      color: #3a2e1f;
+      font-size: 1.3em;
+      margin: 0 0 8px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .news-item p {
+      color: #4a3e2f;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    .about-section {
+      margin-bottom: 40px;
+      background: #f4e9c8 url('parchment_texture.jpg') repeat;
+      padding: 30px;
+      border-radius: 12px;
+      border: 3px solid #8a7f5e;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(94, 138, 63, 0.3);
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+      animation-delay: 0.4s;
     }
     .about-section h2 {
-      color: #1a1a1a;
+      color: #3a2e1f;
+      font-size: 2.3em;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-      animation: drift 4s infinite ease-in-out;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: rgba(94, 138, 63, 0.1);
+      border-radius: 8px;
+      display: inline-block;
+      animation: rustle 5s infinite ease-in-out;
+    }
+    @keyframes rustle {
+      0%, 100% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
     }
     .about-section p {
-      color: #2a2a2a;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes drift {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      color: #4a3e2f;
+      font-size: 1.2em;
+      line-height: 1.7;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
     .video-section {
       margin-bottom: 40px;
       text-align: center;
       position: relative;
-    }
-    .video-section h2 {
-      color: #e8e2d3;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 6px rgba(94, 138, 63, 0.7), 0 0 10px rgba(232, 226, 211, 0.5);
-      margin-bottom: 25px;
-      padding: 15px 30px;
-      display: inline-block;
-      background: linear-gradient(90deg, rgba(94, 138, 63, 0.2), transparent, rgba(94, 138, 63, 0.2));
-      border: 2px solid #5e8a3f;
-      border-radius: 10px;
-      animation: glow 2s infinite ease-in-out;
-      position: relative;
-    }
-    .video-section h2::before {
-      content: '';
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      right: -5px;
-      bottom: -5px;
-      border: 1px dashed #8a7f5e;
-      border-radius: 12px;
-      opacity: 0.7;
-    }
-    @keyframes glow {
-      0%, 100% { text-shadow: 2px 2px 6px rgba(94, 138, 63, 0.7), 0 0 10px rgba(232, 226, 211, 0.5); }
-      50% { text-shadow: 2px 2px 10px rgba(94, 138, 63, 1), 0 0 15px rgba(232, 226, 211, 0.8); }
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+      animation-delay: 0.6s;
     }
     .video-grid {
       display: grid;
@@ -166,9 +217,6 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       border: 2px solid #5e8a3f;
       transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.2s;
     }
     .video-item:hover {
       transform: translateY(-5px);
@@ -177,11 +225,11 @@
     .video-item video {
       border-radius: 10px;
       border: 2px solid #8a7f5e;
+      width: 100%;
     }
-    .video-item p {
-      color: #3a2e1f;
-      font-style: italic;
-      margin-top: 10px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .culture-section {
       margin-bottom: 40px;
@@ -195,7 +243,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.4s;
+      animation-delay: 0.8s;
     }
     .culture-section h2 {
       color: #3a2e1f;
@@ -203,6 +251,10 @@
       text-shadow: 2px 2px 5px rgba(94, 138, 63, 0.5);
       margin-bottom: 20px;
       animation: glow 2s infinite ease-in-out;
+    }
+    @keyframes glow {
+      0%, 100% { text-shadow: 2px 2px 5px rgba(94, 138, 63, 0.5); }
+      50% { text-shadow: 2px 2px 8px rgba(94, 138, 63, 0.8); }
     }
     .culture-section p.intro {
       color: #3a2e1f;
@@ -320,6 +372,7 @@
       <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
       <nav class="nav-links">
         <a href="./index.html" class="nav-btn">Home</a>
+        <a href="#news" class="nav-btn">News</a>
         <a href="./folklore.html" class="nav-btn">Folklore</a>
         <a href="./ambient-spaces.html" class="nav-btn">Ambient Spaces</a>
       </nav>
@@ -331,33 +384,48 @@
       <button class="sound-btn" onclick="toggleSound()">Tribal Echoes: Off</button>
     </div>
 
+    <div class="news-section" id="news">
+      <h2>Latest News from the Reach</h2>
+      <div class="news-grid">
+        <div class="news-item">
+          <h3>Website is Under Construction</h3>
+          <p>We’re clawing away at new features and content—pardon the dust as we build a wilder Therian’s Reach!</p>
+        </div>
+        <div class="news-item">
+          <h3>Calling All Therian Artists</h3>
+          <p>Unleash your inner beast! Submit your art to be featured in our next spotlight—details coming soon.</p>
+        </div>
+        <div class="news-item">
+          <h3>Check Out Our New Ambient Spaces</h3>
+          <p>Dive into our latest immersive environments on the Ambient Spaces page—feel the wild call now!</p>
+        </div>
+      </div>
+    </div>
+
     <div class="about-section">
       <h2>About Therian's Reach</h2>
       <p>Therian's Reach is a sanctuary for Therians—a place to explore your wild side through stories, connect with others, and embrace the mystical call within. Founded by a passionate Therian writer, this space celebrates the duality of human and animal spirits, offering a den to spark curiosity and wonder. Join the pack, and let’s roam together.</p>
     </div>
 
     <div class="video-section">
-      <h2>Explore Therian's Reach</h2>
       <div class="video-grid">
         <div class="video-item">
           <video controls width="100%" poster="therian_video1_poster.jpg">
             <source src="therian_video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <p><em>A glimpse into the wild heart of Therian's Reach.</em></p>
         </div>
         <div class="video-item">
           <video controls width="100%" poster="therian_video2_poster.jpg">
             <source src="therian_video2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <p><em>The call of the shadows awaits.</em></p>
         </div>
       </div>
     </div>
 
     <div class="culture-section">
-      <h2>About Therian Culture</h2>
+      <h2>Therian Culture</h2>
       <p class="intro">Therianthropy is a deep, personal connection to an animal spirit within. Therians identify with their animal side—wolf, fox, owl, or others—blending human and primal instincts. It’s a culture of self-discovery, where shifts in mind or spirit bring us closer to the wild. Here, we honor that duality through stories, art, and shared experiences, howling together under the same moon.</p>
       <img src="spirit_icon.png" alt="Therian Spirit" class="spirit-icon">
       <div class="culture-grid">
@@ -403,5 +471,5 @@
       isPlaying = !isPlaying;
     }
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92629b5c5a8abfe2',t:'MTc0Mjk0OTczMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('script');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
