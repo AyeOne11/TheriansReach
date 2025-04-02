@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Therian's Reach - Contact Us</title>
+  <title>Contact Us - Therian's Reach</title>
   <style>
     body {
       font-family: 'Georgia', serif;
@@ -80,66 +80,100 @@
     }
     .contact-section {
       margin-bottom: 40px;
-      background: #f9f5e9 url('claw_marks.png') no-repeat top left;
-      background-size: 120px;
+      background: rgba(46, 67, 33, 0.9);
       padding: 25px;
-      border-radius: 15px;
-      border: 3px double #5e8a3f;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      border: 2px solid #3f5e2a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       text-align: center;
       position: relative;
+      overflow: hidden;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
+      animation-delay: 0.2s;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('claw_scratch.png') no-repeat top left;
+      background-size: 80px;
+      opacity: 0.3;
+      pointer-events: none;
     }
     .contact-section h2 {
-      color: #3a2e1f;
+      color: #e8e2d3;
       font-size: 2.2em;
-      text-shadow: 2px 2px 5px rgba(94, 138, 63, 0.5);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       margin-bottom: 20px;
-      animation: glow 2s infinite ease-in-out;
+      position: relative;
+      z-index: 1;
+      animation: flicker 3s infinite ease-in-out;
     }
-    @keyframes glow {
-      0%, 100% { text-shadow: 2px 2px 5px rgba(94, 138, 63, 0.5); }
-      50% { text-shadow: 2px 2px 10px rgba(94, 138, 63, 0.8); }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
     }
     .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      background: rgba(249, 245, 233, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #8a7f5e;
       max-width: 500px;
       margin: 0 auto;
+      text-align: left;
+    }
+    .contact-form label {
+      color: #3a2e1f;
+      font-size: 1.1em;
+      display: block;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
     .contact-form input,
     .contact-form textarea {
-      padding: 10px;
-      border: 2px solid #8a7f5e;
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #5e8a3f;
       border-radius: 5px;
       font-family: 'Georgia', serif;
       font-size: 1em;
-      background: rgba(249, 245, 233, 0.9);
-      color: #3a2e1f;
+      background: #f9f5e9;
+      color: #4a3e2f;
     }
     .contact-form textarea {
-      min-height: 150px;
+      height: 150px;
       resize: vertical;
     }
     .contact-form button {
-      padding: 12px 24px;
+      display: inline-block;
+      padding: 10px 20px;
       background-color: #5e8a3f;
       color: #fff;
       border: none;
-      border-radius: 8px;
+      border-radius: 5px;
+      font-size: 1.1em;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
-      font-size: 1.1em;
     }
     .contact-form button:hover {
       background-color: #3f5e2a;
       transform: scale(1.05);
+    }
+    .form-message {
+      color: #3a2e1f;
+      font-size: 1em;
+      margin-top: 10px;
+      text-align: center;
+      display: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     footer {
       text-align: center;
@@ -182,26 +216,35 @@
           <img src="therians_reach_logo.png" alt="Therian's Reach Logo" class="logo-img">
         </a>
       </div>
-      <h1>Contact the Pack</h1>
-      <p class="tagline">Howl your thoughts—let’s connect under the moon.</p>
+      <h1>Contact Us - Therian's Reach</h1>
+      <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
       <nav class="nav-links">
         <a href="./index.html" class="nav-btn">Home</a>
-        <a href="./shares.html" class="nav-btn">Pack Shares</a>
-        <a href="./contact.html" class="nav-btn">Contact Us</a>
-        <a href="./folklore.html" class="nav-btn">Folklore</a>
+        <a href="./news.html" class="nav-btn">News</a>
+        <a href="./ambient-spaces.html" class="nav-btn">Ambient Spaces</a>
+        <a href="./contact-us.html" class="nav-btn">Contact Us</a>
       </nav>
     </div>
   </div>
 
   <div class="container">
     <div class="contact-section">
-      <h2>Send a Message</h2>
-      <form class="contact-form" id="contact-form">
-        <input type="text" name="name" placeholder="Your Therian Name" required>
-        <input type="email" name="email" placeholder="Your Email (to howl back)" required>
-        <textarea name="message" placeholder="Your message to the pack..." required></textarea>
-        <button type="submit">Send Howl</button>
-      </form>
+      <h2>Get in Touch</h2>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/xovapzlp" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+          
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+          
+          <button type="submit">Send Message</button>
+        </form>
+        <p class="form-message">Thank you! Your message has been sent.</p>
+      </div>
     </div>
   </div>
 
@@ -215,44 +258,24 @@
     <p>© 2025 Therian's Reach. All rights reserved.</p>
   </footer>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
   <script>
-    // Firebase configuration provided
-    const firebaseConfig = {
-      apiKey: "AIzaSyDy7u37ZuGouL3VlJONIziuhn_BCNhLWy8",
-      authDomain: "theriansreachweb.firebaseapp.com",
-      projectId: "theriansreachweb",
-      storageBucket: "theriansreachweb.firebasestorage.app",
-      messagingSenderId: "877949471986",
-      appId: "1:877949471986:web:8c0e14049d3c4dbd31d46b",
-      measurementId: "G-07D04BQBTJ"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    // Handle form submission
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = e.target.name.value;
-      const email = e.target.email.value;
-      const message = e.target.message.value;
-
-      // Save to Firestore
-      db.collection('contacts').add({
-        name: name,
-        email: email,
-        message: message,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-        alert('Your howl has been sent! The pack will respond soon.');
-        e.target.reset();
-      }).catch((error) => {
-        console.error('Error sending message: ', error);
-        alert('There was an error sending your howl. Please try again later.');
+    document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission for demo
+      fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.querySelector('.form-message').style.display = 'block';
+          this.reset(); // Clear the form
+        } else {
+          alert('There was an error sending your message. Please try again.');
+        }
+      })
+      .catch(error => {
+        alert('There was an error: ' + error.message);
       });
     });
   </script>
