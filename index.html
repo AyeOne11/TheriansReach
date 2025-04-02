@@ -162,6 +162,88 @@
       font-size: 1em;
       line-height: 1.5;
     }
+    .ebook-section {
+      margin-bottom: 40px;
+      background: rgba(46, 67, 33, 0.9);
+      padding: 25px;
+      border-radius: 10px;
+      border: 2px solid #3f5e2a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+      animation-delay: 0.4s;
+    }
+    .ebook-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('claw_scratch.png') no-repeat top left;
+      background-size: 80px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .ebook-section h2 {
+      color: #e8e2d3;
+      font-size: 2.2em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      animation: flicker 3s infinite ease-in-out;
+    }
+    .ebook-item {
+      background: rgba(249, 245, 233, 0.85);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #8a7f5e;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 1;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .ebook-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(94, 138, 63, 0.5);
+    }
+    .ebook-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      border: 2px solid #8a7f5e;
+      margin-bottom: 10px;
+    }
+    .ebook-item h3 {
+      color: #3a2e1f;
+      font-size: 1.3em;
+      margin: 0 0 8px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .ebook-item p {
+      color: #4a3e2f;
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0 0 10px 0;
+    }
+    .ebook-item a {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #5e8a3f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .ebook-item a:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
     .about-section {
       margin-bottom: 40px;
       background: #f4e9c8 url('parchment_texture.jpg') repeat;
@@ -173,7 +255,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.4s;
+      animation-delay: 0.6s;
     }
     .about-section h2 {
       color: #3a2e1f;
@@ -203,7 +285,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.6s;
+      animation-delay: 0.8s;
     }
     .video-grid {
       display: grid;
@@ -243,7 +325,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.8s;
+      animation-delay: 1s;
     }
     .culture-section h2 {
       color: #3a2e1f;
@@ -372,8 +454,7 @@
       <p class="tagline">Where shadows dance, spirits roam, and secrets whisper in the wind.</p>
       <nav class="nav-links">
         <a href="./index.html" class="nav-btn">Home</a>
-        <a href="#news" class="nav-btn">News</a>
-        <a href="./folklore.html" class="nav-btn">Folklore</a>
+        <a href="./news.html" class="nav-btn">News</a>
         <a href="./ambient-spaces.html" class="nav-btn">Ambient Spaces</a>
       </nav>
     </div>
@@ -399,6 +480,16 @@
           <h3>Check Out Our New Ambient Spaces</h3>
           <p>Dive into our latest immersive environments on the Ambient Spaces page—feel the wild call now!</p>
         </div>
+      </div>
+    </div>
+
+    <div class="ebook-section">
+      <h2>Featured E-Book</h2>
+      <div class="ebook-item">
+        <img src="therian-ebook-cover.jpg" alt="Therian E-Book Cover">
+        <h3>Therianthropy: History, Culture, Lifestyle</h3>
+        <p>Unleash your inner Therian with our newest e-book, now available on Amazon!</p>
+        <a href="https://www.amazon.ca/dp/B0F33PQ7P8" target="_blank">Get Your Copy</a>
       </div>
     </div>
 
@@ -471,5 +562,5 @@
       isPlaying = !isPlaying;
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92629b5c5a8abfe2',t:'MTc0Mjk0OTczMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('script');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92629b5c5a8abfe2',t:'MTc0Mjk0OTczMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('script');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92a345430dee1867',t:'MTc0MzYyNzc4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
