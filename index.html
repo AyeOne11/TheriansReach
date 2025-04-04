@@ -318,9 +318,6 @@
       background: rgba(255, 255, 255, 0.9);
       color: #4a3e2f;
     }
-    .artist-call-form input[type="file"] {
-      padding: 3px;
-    }
     .artist-call-form button {
       padding: 10px 20px;
       background-color: #5e8a3f;
@@ -587,9 +584,9 @@
 
     <div class="artist-call-section">
       <h2>Calling All Therian Artists</h2>
-      <p class="intro">"Unleash your wild spirit—let your art howl, soar, and roam free."</p>
+      <p class="intro">"Unleash your wild spirit—let your art howl, soar, and roam free. If accepted, we’ll reach out for your artwork file."</p>
       <div class="artist-call-form">
-        <form id="art-submission" action="https://formspree.io/f/xzzejojj" method="POST" enctype="multipart/form-data">
+        <form id="art-submission" action="https://formspree.io/f/xzzejojj" method="POST">
           <label for="artist-name">Your Name (or Alias):</label>
           <input type="text" id="artist-name" name="artist-name" required>
           
@@ -598,9 +595,6 @@
           
           <label for="art-description">Description/Inspiration:</label>
           <textarea id="art-description" name="art-description" rows="4" required></textarea>
-          
-          <label for="art-file">Upload Your Artwork:</label>
-          <input type="file" id="art-file" name="art-file" accept="image/*" required>
           
           <input type="hidden" name="_subject" value="New Artist Submission - Therian's Reach">
           <input type="hidden" name="_next" value="./thank-you.html">
