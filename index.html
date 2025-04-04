@@ -244,6 +244,97 @@
       background-color: #3f5e2a;
       transform: scale(1.05);
     }
+    .artist-call-section {
+      margin-bottom: 40px;
+      background: rgba(46, 67, 33, 0.9);
+      padding: 25px;
+      border-radius: 10px;
+      border: 2px solid #3f5e2a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+      animation-delay: 0.6s;
+    }
+    .artist-call-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('claw_scratch.png') no-repeat top left;
+      background-size: 80px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .artist-call-section h2 {
+      color: #e8e2d3;
+      font-size: 2.2em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      animation: flicker 3s infinite ease-in-out;
+    }
+    .artist-call-section p.intro {
+      color: #d1c9a5;
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .artist-call-form {
+      background: rgba(249, 245, 233, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #8a7f5e;
+      max-width: 500px;
+      margin: 0 auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .artist-call-form:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(94, 138, 63, 0.5);
+    }
+    .artist-call-form label {
+      color: #3a2e1f;
+      font-size: 1.1em;
+      display: block;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .artist-call-form input,
+    .artist-call-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #5e8a3f;
+      border-radius: 5px;
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.9);
+      color: #4a3e2f;
+    }
+    .artist-call-form input[type="file"] {
+      padding: 3px;
+    }
+    .artist-call-form button {
+      padding: 10px 20px;
+      background-color: #5e8a3f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .artist-call-form button:hover {
+      background-color: #3f5e2a;
+      transform: scale(1.05);
+    }
     .about-section {
       margin-bottom: 40px;
       background: #f4e9c8 url('parchment_texture.jpg') repeat;
@@ -255,7 +346,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.6s;
+      animation-delay: 0.8s;
     }
     .about-section h2 {
       color: #3a2e1f;
@@ -285,7 +376,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 0.8s;
+      animation-delay: 1s;
     }
     .video-grid {
       display: grid;
@@ -325,7 +416,7 @@
       position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
-      animation-delay: 1s;
+      animation-delay: 1.2s;
     }
     .culture-section h2 {
       color: #3a2e1f;
@@ -474,8 +565,8 @@
           <p>We’re clawing away at new features and content—pardon the dust as we build a wilder Therian’s Reach!</p>
         </div>
         <div class="news-item">
-          <h3>Calling All Therian Artists</h3>
-          <p>Unleash your inner beast! Submit your art to be featured in our next spotlight—details coming soon.</p>
+          <h3>Calling All Therian Artists - Submissions Open!</h3>
+          <p>Unleash your inner beast! The artist spotlight is here—submit your wild creations below.</p>
         </div>
         <div class="news-item">
           <h3>Check Out Our New Ambient Spaces</h3>
@@ -491,6 +582,31 @@
         <h3>Explore the Wild Within</h3>
         <p>Unleash your Therian spirit with our new e-book, now available on Amazon!</p>
         <a href="https://www.amazon.ca/dp/B0F33PQ7P8" target="_blank">Get Your Copy</a>
+      </div>
+    </div>
+
+    <div class="artist-call-section">
+      <h2>Calling All Therian Artists</h2>
+      <p class="intro">"Unleash your wild spirit—let your art howl, soar, and roam free."</p>
+      <div class="artist-call-form">
+        <form id="art-submission" action="https://formspree.io/f/xzzejojj" method="POST" enctype="multipart/form-data">
+          <label for="artist-name">Your Name (or Alias):</label>
+          <input type="text" id="artist-name" name="artist-name" required>
+          
+          <label for="art-title">Artwork Title:</label>
+          <input type="text" id="art-title" name="art-title" required>
+          
+          <label for="art-description">Description/Inspiration:</label>
+          <textarea id="art-description" name="art-description" rows="4" required></textarea>
+          
+          <label for="art-file">Upload Your Artwork:</label>
+          <input type="file" id="art-file" name="art-file" accept="image/*" required>
+          
+          <input type="hidden" name="_subject" value="New Artist Submission - Therian's Reach">
+          <input type="hidden" name="_next" value="./thank-you.html">
+          
+          <button type="submit">Submit Your Masterpiece</button>
+        </form>
       </div>
     </div>
 
@@ -563,5 +679,5 @@
       isPlaying = !isPlaying;
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92629b5c5a8abfe2',t:'MTc0Mjk0OTczMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('script');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92a345430dee1867',t:'MTc0MzYyNzc4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92b33c682c76c95a',t:'MTc0Mzc5NTE5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
